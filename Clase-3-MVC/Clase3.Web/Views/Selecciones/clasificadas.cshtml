@@ -1,8 +1,10 @@
 ﻿@model List<Clase3.Entidades.Seleccion>
 @{
 }
-<h1>Todas las Selecciones</h1>
+<h1>Todas las Selecciones Clasificadas</h1>
+
 <div>
+
     @foreach (var seleccion in Model)
     {
         <div>
@@ -11,4 +13,8 @@
             </span>
         </div>
     }
+
+    <br />
+    <a href="/selecciones/clasificadasAlf"><h4>Todas las Selecciones Clasificadas Alfabeticamente</h4></a>
+
 </div>

@@ -12,6 +12,7 @@ namespace Clase3.Web.Controllers
         {
             _seleccionService = seleccionService;
         }
+
         public IActionResult Index()
         {
             return View();
@@ -22,6 +23,7 @@ namespace Clase3.Web.Controllers
             List<Seleccion> todasSelecciones = _seleccionService.ObtenerTodas();
             return View(todasSelecciones);
         }
+
         [HttpGet]
         public IActionResult Agregar()
         {
@@ -34,5 +36,20 @@ namespace Clase3.Web.Controllers
             _seleccionService.Agregar(seleccion);
             return Redirect("/selecciones/todas");
         }
+
+        public IActionResult Clasificadas()
+        {
+            List<Seleccion> clasificadas = _seleccionService.ObtenerClasificadas();
+            return View(clasificadas);
+        }
+
+        public IActionResult ClasificadasAlf()
+        {
+            List<Seleccion> clasificadas = _seleccionService.ObtenerClasificadasAlf();
+            return View("clasificadas",clasificadas);
+        }
+
+
+
     }
 }
