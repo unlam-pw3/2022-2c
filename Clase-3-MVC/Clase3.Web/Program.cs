@@ -1,7 +1,10 @@
+using Clase3.Logica;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<ISeleccionService, SeleccionService>();
 
 var app = builder.Build();
 

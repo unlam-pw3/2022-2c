@@ -7,7 +7,13 @@ using System.Threading.Tasks;
 
 namespace Clase3.Logica
 {
-    public class SeleccionService
+    public interface ISeleccionService
+    {
+        public List<Seleccion> ObtenerTodas();
+        public List<Seleccion> ObtenerClasificados();
+        public void Agregar(Seleccion seleccion);
+    }
+    public class SeleccionService : ISeleccionService
     {
         private static List<Seleccion> Selecciones { get; set; } = new List<Seleccion>() 
         {
@@ -24,6 +30,20 @@ namespace Clase3.Logica
         public List<Seleccion> ObtenerClasificados()
         {
             return Selecciones.Where(o => o.Clasificada).ToList();
+        }
+
+        private bool Existe(Seleccion seleccion)
+        {
+            return Selecciones.Any(s => string.Equals(s.Pais, seleccion.Pais, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public void Agregar(Seleccion seleccion)
+        {
+            if (Existe(seleccion))
+            {
+                throw new SeleccionYaExistenteException();
+            }
+            Selecciones.Add(seleccion);
         }
     }
 }

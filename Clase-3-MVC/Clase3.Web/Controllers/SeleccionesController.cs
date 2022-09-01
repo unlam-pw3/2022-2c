@@ -6,6 +6,12 @@ namespace Clase3.Web.Controllers
 {
     public class SeleccionesController : Controller
     {
+        private ISeleccionService _seleccionService;
+
+        public SeleccionesController(ISeleccionService seleccionService)
+        {
+            _seleccionService = seleccionService;
+        }
         public IActionResult Index()
         {
             return View();
@@ -13,9 +19,20 @@ namespace Clase3.Web.Controllers
 
         public IActionResult Todas()
         {
-            SeleccionService seleccionService = new SeleccionService();
-            List<Seleccion> todasSelecciones = seleccionService.ObtenerTodas();
+            List<Seleccion> todasSelecciones = _seleccionService.ObtenerTodas();
             return View(todasSelecciones);
+        }
+        [HttpGet]
+        public IActionResult Agregar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Agregar(Seleccion seleccion)
+        {
+            _seleccionService.Agregar(seleccion);
+            return Redirect("/selecciones/todas");
         }
     }
 }
