@@ -1,15 +1,22 @@
-﻿@{
+﻿@model Clase3.Entidades.Seleccion
+@{
 }
 <form action="/selecciones/agregar" method="post">
     <div>
-        Pais: <input type="text" name="Pais" />
+        Pais: <input type="text" name="Pais" class="form-control" />
     </div>
     <div>
-        Continente: <input type="text" name="Continente" />
+        Continente: <select asp-for="Continente" asp-items="@Html.GetEnumSelectList<Clase3.Entidades.Seleccion.Continentes>()"
+            class="form-select"></select>
     </div>
     <div>
-        Clasificado: <input type="checkbox" name="Clasificada" value="true" />
+        Confederación: <select asp-for="Confederacion"
+            asp-items="@Html.GetEnumSelectList<Clase3.Entidades.Seleccion.Confederaciones>()" class="form-select"></select>
     </div>
-    <input type="submit" value="Agregar" />
+    <div class="form-check form-switch my-3">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="Clasificada" value="true">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Clasificada al mundial</label>
+    </div>
+    <input type="submit" value="Agregar" class="btn btn-primary" />
 </form>
 

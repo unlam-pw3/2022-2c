@@ -1,13 +1,15 @@
 ﻿@model List<Clase3.Entidades.Seleccion>
 @{
+    var url = Url.RouteUrl(ViewContext.RouteData.Values);
+    var title = url.Contains("Todas") ? "Todas las Selecciones" : "Selecciones Clasificadas";
 }
-<h1>Todas las Selecciones</h1>
+<h1>@title</h1>
 <div>
     @foreach (var seleccion in Model)
     {
         <div>
             <span style="@(seleccion.Clasificada ? "font-weight:bold" : "")">
-                @($"{seleccion.Pais} ({seleccion.Continente})")
+                @($"{seleccion.Pais} ({seleccion.Continente} - {seleccion.Confederacion})")
             </span>
         </div>
     }

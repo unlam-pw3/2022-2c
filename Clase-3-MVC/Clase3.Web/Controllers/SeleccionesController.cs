@@ -28,6 +28,12 @@ namespace Clase3.Web.Controllers
             return View();
         }
 
+        public IActionResult Clasificadas()
+        {
+            List<Seleccion> seleccionesClasificadas = _seleccionService.ObtenerClasificados();
+            return View("Todas", seleccionesClasificadas);
+        }
+
         [HttpPost]
         public IActionResult Agregar(Seleccion seleccion)
         {
