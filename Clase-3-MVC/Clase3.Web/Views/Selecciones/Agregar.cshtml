@@ -1,15 +1,19 @@
 ﻿@{
 }
-<form action="/selecciones/agregar" method="post">
-    <div>
-        Pais: <input type="text" name="Pais" />
+<form action="/selecciones/agregar" method="post" class="form-control">
+    <h1 class="card-title">Agregar Seleccion</h1>
+    <div class="mb-3">
+        Pais: <input type="text" name="Pais" class="form-control" />
     </div>
-    <div>
-        Continente: <input type="text" name="Continente" />
+    <div class="mb-3">
+        Continente: <input type="text" name="Continente" class="form-control" />
     </div>
-    <div>
-        Clasificado: <input type="checkbox" name="Clasificada" value="true" />
+    <div class="mb-3">
+        Confederacion: <input type="text" name="Confederacion" class="form-control" />
     </div>
-    <input type="submit" value="Agregar" />
+    <div class="mb-3">
+        Clasificado: <input type="checkbox" name="Clasificada" value="true" class="form-check" />
+    </div>
+    <input type="submit" value="Agregar" class="btn btn-outline-primary"/>
 </form>
 
