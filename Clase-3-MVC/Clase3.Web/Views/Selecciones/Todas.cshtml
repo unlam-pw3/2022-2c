@@ -1,0 +1,14 @@
+﻿@model List<Clase3.Entidades.Seleccion>
+@{
+}
+<h1>Todas las Selecciones</h1>
+<div>
+    @foreach (var seleccion in Model)
+    {
+        <div>
+            <span style="@(seleccion.Clasificada ? "font-weight:bold" : "")">
+                @($"{seleccion.Pais} ({seleccion.Continente})")
+            </span>
+        </div>
+    }
+</div>
