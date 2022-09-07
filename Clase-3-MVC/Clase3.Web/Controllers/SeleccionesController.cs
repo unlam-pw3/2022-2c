@@ -22,10 +22,18 @@ namespace Clase3.Web.Controllers
             List<Seleccion> todasSelecciones = _seleccionService.ObtenerTodas();
             return View(todasSelecciones);
         }
+
         [HttpGet]
         public IActionResult Agregar()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Ordenadas()
+        {
+            List<Seleccion> todasSelecciones = _seleccionService.ObtenerOrdenadasAlfabeticamenteClasificadas();
+            return View(todasSelecciones);
         }
 
         [HttpPost]
