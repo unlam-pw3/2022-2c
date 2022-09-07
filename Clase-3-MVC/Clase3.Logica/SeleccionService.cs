@@ -10,16 +10,22 @@ namespace Clase3.Logica
     public interface ISeleccionService
     {
         public List<Seleccion> ObtenerTodas();
-        public List<Seleccion> ObtenerClasificados();
+        public List<Seleccion> ObtenerClasificadas();
+        public List<Seleccion> ObtenerClasificadasAlf();
         public void Agregar(Seleccion seleccion);
     }
     public class SeleccionService : ISeleccionService
     {
         private static List<Seleccion> Selecciones { get; set; } = new List<Seleccion>() 
         {
-            new Seleccion() { Pais = "Argentina", Clasificada = true, Continente = "America"},
-            new Seleccion() { Pais = "Brasil", Clasificada = true, Continente = "America"},
-            new Seleccion() { Pais = "Italia", Clasificada = false, Continente = "Europa"},
+            new Seleccion() { Pais = "Argentina", Clasificada = true,
+                             Continente = "America",Federacion = "AFA"},
+            new Seleccion() { Pais = "Brasil", Clasificada = true,
+                             Continente = "America",Federacion = "CBF"},
+            new Seleccion() { Pais = "Italia", Clasificada = false,
+                             Continente = "Europa",Federacion = "FIGC"},
+            new Seleccion() { Pais = "Alemania", Clasificada = true,
+                             Continente = "Europa",Federacion = "DFB"},
         };
 
         public List<Seleccion> ObtenerTodas()
@@ -27,9 +33,15 @@ namespace Clase3.Logica
             return Selecciones;
         }
 
-        public List<Seleccion> ObtenerClasificados()
+        public List<Seleccion> ObtenerClasificadas()
         {
             return Selecciones.Where(o => o.Clasificada).ToList();
+        }
+
+        public List<Seleccion> ObtenerClasificadasAlf()
+        {
+            List<Seleccion> clasificadas = Selecciones.Where(o => o.Clasificada).ToList();
+            return clasificadas.OrderBy(o => o.Pais).ToList();
         }
 
         private bool Existe(Seleccion seleccion)
@@ -45,5 +57,7 @@ namespace Clase3.Logica
             }
             Selecciones.Add(seleccion);
         }
+
+        
     }
 }
