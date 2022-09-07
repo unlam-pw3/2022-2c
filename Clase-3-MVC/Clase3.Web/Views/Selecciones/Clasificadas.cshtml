@@ -1,0 +1,14 @@
+﻿@model List<Clase3.Entidades.Seleccion>
+@{
+}
+<h1>Selecciones clasificadas al mundial</h1>
+<div>
+    @foreach (var seleccion in Model)
+    {
+        <div>
+            <span>
+                @($"{seleccion.Pais} ({seleccion.Continente})")
+            </span>
+        </div>
+    }
+</div>

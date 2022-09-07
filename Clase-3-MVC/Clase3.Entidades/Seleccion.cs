@@ -11,5 +11,6 @@ namespace Clase3.Entidades
         public string Pais { get; set; } = string.Empty;
         public bool Clasificada { get; set; }
         public string Continente { get; set; } = string.Empty;
+        public string Confederacion { get; set; } = string.Empty;
     }
 }

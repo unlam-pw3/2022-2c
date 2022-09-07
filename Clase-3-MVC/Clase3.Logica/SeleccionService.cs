@@ -17,9 +17,10 @@ namespace Clase3.Logica
     {
         private static List<Seleccion> Selecciones { get; set; } = new List<Seleccion>() 
         {
-            new Seleccion() { Pais = "Argentina", Clasificada = true, Continente = "America"},
-            new Seleccion() { Pais = "Brasil", Clasificada = true, Continente = "America"},
-            new Seleccion() { Pais = "Italia", Clasificada = false, Continente = "Europa"},
+            new Seleccion() { Pais = "Argentina", Clasificada = true, Continente = "America", Confederacion = "AFA"},
+            new Seleccion() { Pais = "Brasil", Clasificada = true, Continente = "America", Confederacion = "CBF"},
+            new Seleccion() { Pais = "Italia", Clasificada = false, Continente = "Europa", Confederacion = "FIGC"},
+            new Seleccion() { Pais = "Alemania", Clasificada = true, Continente = "Europa", Confederacion = "DFB"}
         };
 
         public List<Seleccion> ObtenerTodas()
@@ -29,7 +30,7 @@ namespace Clase3.Logica
 
         public List<Seleccion> ObtenerClasificados()
         {
-            return Selecciones.Where(o => o.Clasificada).ToList();
+            return Selecciones.Where(o => o.Clasificada).OrderBy(Selecciones => Selecciones.Pais).ToList();
         }
 
         private bool Existe(Seleccion seleccion)
