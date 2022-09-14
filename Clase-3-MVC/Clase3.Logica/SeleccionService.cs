@@ -35,8 +35,7 @@ namespace Clase3.Logica
 
         public List<Seleccion> ObtenerOrdenadasAlfabeticamenteClasificadas()
         {
-            List<Seleccion> selecciones = Selecciones.Where(o => o.Clasificada).ToList();
-            return selecciones.OrderBy(o => o.Pais).ToList();
+            return Selecciones.Where(o => o.Clasificada).OrderBy(o => o.Pais).ToList();
         }
 
         private bool Existe(Seleccion seleccion)
