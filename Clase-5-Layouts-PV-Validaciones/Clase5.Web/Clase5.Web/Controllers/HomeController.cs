@@ -22,7 +22,12 @@ namespace Clase5.Web.Controllers
         {
             return View();
         }
-        
+
+        public IActionResult VistaConLayoutAnidado()
+        {
+            return View();
+        }
+
 
         public IActionResult Privacy()
         {
