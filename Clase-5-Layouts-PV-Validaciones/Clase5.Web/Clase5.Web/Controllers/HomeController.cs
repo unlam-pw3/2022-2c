@@ -18,6 +18,12 @@ namespace Clase5.Web.Controllers
             return View();
         }
 
+        public IActionResult VistaConLayout()
+        {
+            return View();
+        }
+        
+
         public IActionResult Privacy()
         {
             return View();
