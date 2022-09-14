@@ -5,9 +5,9 @@ VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clase3.Web", "Clase3.Web\Clase3.Web.csproj", "{5BB3D782-2279-4724-B577-8AE3901CCE58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clase3.Logica", "Clase3.Logica\Clase3.Logica.csproj", "{BBFE59BB-F475-4D94-96BF-6321DEBBD8EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clase3.Logica", "Clase3.Logica\Clase3.Logica.csproj", "{BBFE59BB-F475-4D94-96BF-6321DEBBD8EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clase3.Entidades", "Clase3.Entidades\Clase3.Entidades.csproj", "{C74C374D-BD46-4AD8-8FF9-7406A3E2A07B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clase3.Entidades", "Clase3.Entidades\Clase3.Entidades.csproj", "{C74C374D-BD46-4AD8-8FF9-7406A3E2A07B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
