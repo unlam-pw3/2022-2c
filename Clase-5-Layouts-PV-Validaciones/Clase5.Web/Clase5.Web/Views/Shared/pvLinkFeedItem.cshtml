@@ -1,0 +1,10 @@
+﻿@model Clase5.Web.Models.FeedItem
+<div>
+    <a href="@Model.PerfilUrl">
+        <img src=@Model.ImagenUrl width="50" height="50"/>
+    </a>
+    <span>@Model.Usuario</span>
+</div>
+<div>
+    @Html.Raw($"{Model.Comentario} ({Model.HoraComentario})")
+</div>
