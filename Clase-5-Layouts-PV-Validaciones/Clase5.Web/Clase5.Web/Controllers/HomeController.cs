@@ -28,6 +28,10 @@ namespace Clase5.Web.Controllers
             return View();
         }
 
+        public IActionResult VistaConMenuLateral()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
