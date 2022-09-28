@@ -28,6 +28,18 @@ namespace Clase6.Evaluacion.Logica.Servicios
         public void RegistrarAlquiler(AlquilerAuto alquilerAuto)
         {
             alquilerAuto.Id = ObtenerMaxId() + 1;
+            if(alquilerAuto.CantidadDias < 10)
+            {
+                alquilerAuto.PrecioAlquiler = alquilerAuto.CantidadDias * 1000;
+            }
+            else if(alquilerAuto.CantidadDias >= 10 && alquilerAuto.CantidadDias < 20)
+            {
+                alquilerAuto.PrecioAlquiler = alquilerAuto.CantidadDias * 800;
+            }
+            else if (alquilerAuto.CantidadDias >= 20)
+            {
+                alquilerAuto.PrecioAlquiler = alquilerAuto.CantidadDias * 500;
+            }
 
             Lista.Add(alquilerAuto);
         }
