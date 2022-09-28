@@ -10,4 +10,8 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Clase6.Evaluacion.Logica\Clase6.Evaluacion.Logica.csproj" />
+  </ItemGroup>
+
 </Project>

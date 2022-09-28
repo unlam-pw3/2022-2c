@@ -1,0 +1,17 @@
+﻿@model Clase6.Evaluacion.Entidades.AlquilerAuto
+@{
+}
+<h1>Registrar Alquiler</h1>
+<form action="/AlquilerVehiculos/Registrar" method="post">
+    <div>
+        Nombre Cliente: <input type="text" name="NombreCliente" />
+    </div>
+    <div>
+        Modelo Auto: <input type="text" name="Modelo" />
+    </div>
+    <div>
+        Cantidad de dias: <input type="number" name="CantidadDias" />
+    </div>
+
+    <input type="submit" value="Registrar" />
+</form>
