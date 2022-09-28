@@ -21,6 +21,9 @@ public class AlquilerVehiculosController : Controller
     [HttpPost]
     public IActionResult Registrar(AlquilerAuto alquilerAuto)
     {
+        if (!ModelState.IsValid)
+            return View(alquilerAuto);
+        
         _alquilerAutoServicio.RegistrarAlquiler(alquilerAuto);
         return Redirect("/AlquilerVehiculos/Resultados");
     }
