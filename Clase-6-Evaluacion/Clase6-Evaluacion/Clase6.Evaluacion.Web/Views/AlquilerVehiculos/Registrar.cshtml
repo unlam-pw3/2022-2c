@@ -1,0 +1,20 @@
+﻿@model Clase6.Evaluacion.Entidades.AlquilerAuto
+@{
+}
+<h1>Registrar Alquiler</h1>
+<form action="/AlquilerVehiculos/Registrar" method="post">
+    <div>
+        Nombre Cliente: <input type="text" name="NombreCliente" asp-for="NombreCliente" />
+        <span asp-validation-for="NombreCliente"></span>
+    </div>
+    <div>
+        Modelo Auto: <input type="text" name="Modelo" asp-for="Modelo" />
+        <span asp-validation-for="Modelo"></span>
+    </div>
+    <div>
+        Cantidad de dias: <input type="number" name="CantidadDias" asp-for="CantidadDias"/>
+        <span asp-validation-for="CantidadDias"></span>
+    </div>
+
+    <input type="submit" value="Registrar" />
+</form>

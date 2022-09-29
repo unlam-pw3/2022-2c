@@ -1,0 +1,33 @@
+﻿@model List<Clase6.Evaluacion.Entidades.AlquilerAuto>
+@{
+}
+
+<table>
+    <tr>
+        <th>idAlquiler</th>
+        <th>Cliente</th>
+        <th>Modelo</th>
+        <th>Cantidad de dias</th>
+        <th>Precio Alquier</th>
+    </tr>
+    @foreach (var alq in Model)
+    {
+        <tr>
+            <td>
+                @alq.Id
+            </td>
+            <td>
+                @alq.NombreCliente
+            </td>
+            <td>
+                @alq.Modelo
+            </td>
+            <td>
+                @alq.CantidadDias
+            </td>
+            <td>
+                @alq.PrecioAlquiler
+            </td>
+        </tr>
+    }
+</table>
