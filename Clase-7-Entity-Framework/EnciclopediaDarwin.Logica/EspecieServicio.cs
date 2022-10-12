@@ -13,6 +13,8 @@ namespace EnciclopediaDarwin.Logica
         void Insertar(Especie especie);
 
         List<TipoEspecie> ObtenerTipoEspecies();
+        Especie ObtenerPorId(int id);
+        void Eliminar(Especie especie);
     }
     public class EspecieServicio : IEspecieServicio
     {
@@ -21,10 +23,22 @@ namespace EnciclopediaDarwin.Logica
         {
             _context = context;
         }
+
+        public void Eliminar(Especie especie)
+        {
+            _context.Especies.Remove(especie);
+            _context.SaveChanges();
+        }
+
         public void Insertar(Especie especie)
         {
             _context.Especies.Add(especie);
             _context.SaveChanges();
+        }
+
+        public Especie ObtenerPorId(int id)
+        {
+            return _context.Especies.Find(id);
         }
 
         public List<TipoEspecie> ObtenerTipoEspecies()

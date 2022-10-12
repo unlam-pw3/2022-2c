@@ -13,6 +13,9 @@
         <th>
             Edad Promedio (Años)
         </th>
+        <th>
+            Eliminar
+        </th>
     </tr>
     @foreach (var especie in Model)
     {
@@ -20,6 +23,7 @@
             <td>@especie.Nombre</td>
             <td>@especie.PesoPromedioKg</td>
             <td>@especie.EdadPromedioAños</td>
+            <td><a href="/Especies/Eliminar/@especie.IdEspecie">Eliminar</a></td>
         </tr>
     }
 </table>

@@ -29,5 +29,14 @@ namespace EnciclopediaDarwin.Web.Controllers
         {
             return View(_especieServicio.ObtenerTodos());
         }
+        public IActionResult Eliminar(int id)
+        {
+            var especie = _especieServicio.ObtenerPorId(id);
+            if (especie != null)
+            {
+                _especieServicio.Eliminar(especie);
+            }
+            return RedirectToAction("Lista");
+        }
     }
 }
