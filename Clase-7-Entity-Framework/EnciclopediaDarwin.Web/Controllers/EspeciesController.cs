@@ -1,12 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EnciclopediaDarwin.Logica;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EnciclopediaDarwin.Web.Controllers
 {
     public class EspeciesController : Controller
     {
-        public IActionResult Index()
+        private IEspecieServicio _especieServicio;
+        public EspeciesController(IEspecieServicio especieServicio)
         {
-            return View();
+            _especieServicio = especieServicio;
+        }
+        public IActionResult Lista()
+        {
+            return View(_especieServicio.ObtenerTodos());
         }
     }
 }

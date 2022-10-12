@@ -1,10 +1,16 @@
+using EnciclopediaDarwin.Data.Entidades;
+using EnciclopediaDarwin.Logica;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<_20222CEnciclopediaDarwinContext>();
+builder.Services.AddScoped<IEspecieServicio, EspecieServicio>();
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -20,6 +26,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapRazorPages();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Especies}/{action=Lista}/{id?}");
 
+app.MapDefaultControllerRoute();
+app.MapRazorPages();
 app.Run();
