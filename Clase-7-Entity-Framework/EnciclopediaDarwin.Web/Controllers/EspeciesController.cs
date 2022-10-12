@@ -1,4 +1,5 @@
-﻿using EnciclopediaDarwin.Logica;
+﻿using EnciclopediaDarwin.Data.Entidades;
+using EnciclopediaDarwin.Logica;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EnciclopediaDarwin.Web.Controllers
@@ -10,6 +11,20 @@ namespace EnciclopediaDarwin.Web.Controllers
         {
             _especieServicio = especieServicio;
         }
+
+        public IActionResult Alta()
+        {
+            ViewBag.TipoEspecies = _especieServicio.ObtenerTipoEspecies();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Alta(Especie especie)
+        {
+            _especieServicio.Insertar(especie);
+            return RedirectToAction("Lista");
+        }
+
         public IActionResult Lista()
         {
             return View(_especieServicio.ObtenerTodos());

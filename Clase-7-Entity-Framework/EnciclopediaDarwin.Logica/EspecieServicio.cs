@@ -11,6 +11,8 @@ namespace EnciclopediaDarwin.Logica
     {
         List<Especie> ObtenerTodos();
         void Insertar(Especie especie);
+
+        List<TipoEspecie> ObtenerTipoEspecies();
     }
     public class EspecieServicio : IEspecieServicio
     {
@@ -25,9 +27,15 @@ namespace EnciclopediaDarwin.Logica
             _context.SaveChanges();
         }
 
+        public List<TipoEspecie> ObtenerTipoEspecies()
+        {
+            return _context.TipoEspecies.OrderBy(te => te.Nombre).ToList();
+        }
+
         public List<Especie> ObtenerTodos()
         {
             return _context.Especies.ToList();
         }
+
     }
 }
