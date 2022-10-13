@@ -15,6 +15,7 @@ namespace EnciclopediaDarwin.Logica
         List<TipoEspecie> ObtenerTipoEspecies();
         Especie ObtenerPorId(int id);
         void Eliminar(Especie especie);
+        void Actualizar(Especie especie);
     }
     public class EspecieServicio : IEspecieServicio
     {
@@ -22,6 +23,19 @@ namespace EnciclopediaDarwin.Logica
         public EspecieServicio(_20222CEnciclopediaDarwinContext context)
         {
             _context = context;
+        }
+
+        public void Actualizar(Especie especie)
+        {
+            var especieEnDb = _context.Especies.Find(especie.IdEspecie);
+            if (especieEnDb == null) return;
+            
+            especieEnDb.Nombre = especie.Nombre;
+            especieEnDb.PesoPromedioKg = especie.PesoPromedioKg;
+            especieEnDb.EdadPromedioAños = especie.EdadPromedioAños;
+            especieEnDb.IdTipoEspecie = especie.IdTipoEspecie;
+
+            _context.SaveChanges();
         }
 
         public void Eliminar(Especie especie)

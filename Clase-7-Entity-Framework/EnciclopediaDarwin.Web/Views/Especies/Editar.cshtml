@@ -1,0 +1,33 @@
+﻿@using EnciclopediaDarwin.Data.Entidades
+@model Especie
+
+<form action="/Especies/editar" method="post">
+    <input type="hidden" name="IdEspecie" value="@Model.IdEspecie"/>
+    <div>
+        Nombre: <input type="text" name="Nombre" value="@Model.Nombre" />
+    </div>
+    <div>
+        Peso Promedio (KG): <input type="text" name="PesoPromedioKg" value="@Model.PesoPromedioKg" />
+    </div>
+    <div>
+        Edad Promedio (Años): <input type="text" name="EdadPromedioAños" value="@Model.EdadPromedioAños" />
+    </div>
+    <div>
+        Tipo Especie:
+        <select name="IdTipoEspecie">
+            @foreach (TipoEspecie tipoEspecie in ViewBag.TipoEspecies)
+            {
+                if (Model.IdTipoEspecie == tipoEspecie.IdTipoEspecie)
+                {
+                    <option selected="selected" value="@tipoEspecie.IdTipoEspecie">@tipoEspecie.Nombre</option>
+                }
+                else
+                {
+                    <option value="@tipoEspecie.IdTipoEspecie">@tipoEspecie.Nombre</option>
+                }
+            }
+        </select>
+    </div>
+    <input type="submit" value="Guardar" />
+    <input type="submit" value="Cancelar" />
+</form>

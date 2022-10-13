@@ -20,7 +20,7 @@
     @foreach (var especie in Model)
     {
         <tr>
-            <td>@especie.Nombre</td>
+            <td><a href="/Especies/Editar/@especie.IdEspecie">@especie.Nombre</a></td>
             <td>@especie.PesoPromedioKg</td>
             <td>@especie.EdadPromedioAños</td>
             <td><a href="/Especies/Eliminar/@especie.IdEspecie">Eliminar</a></td>
