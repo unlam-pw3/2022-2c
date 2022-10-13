@@ -1,0 +1,29 @@
+﻿@using EnciclopediaDarwin.Data.Entidades
+@model List<Especie>
+@{
+}
+<table>
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Peso Promedio (KG)
+        </th>
+        <th>
+            Edad Promedio (Años)
+        </th>
+        <th>
+            Eliminar
+        </th>
+    </tr>
+    @foreach (var especie in Model)
+    {
+        <tr>
+            <td><a href="/Especies/Editar/@especie.IdEspecie">@especie.Nombre</a></td>
+            <td>@especie.PesoPromedioKg</td>
+            <td>@especie.EdadPromedioAños</td>
+            <td><a href="/Especies/Eliminar/@especie.IdEspecie">Eliminar</a></td>
+        </tr>
+    }
+</table>

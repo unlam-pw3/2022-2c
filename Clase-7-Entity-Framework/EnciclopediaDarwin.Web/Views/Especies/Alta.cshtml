@@ -1,0 +1,25 @@
+﻿@using EnciclopediaDarwin.Data.Entidades
+@model Especie
+
+<form action="/Especies/alta" method="post">
+
+    <div>
+        Nombre: <input type="text" name="Nombre" />
+    </div>
+    <div>
+        Peso Promedio (KG): <input type="text" name="PesoPromedioKg" />
+    </div>
+    <div>
+        Edad Promedio (Años): <input type="text" name="EdadPromedioAños" />
+    </div>
+    <div>
+        Tipo Especie: 
+        <select name="IdTipoEspecie">
+            @foreach (TipoEspecie tipoEspecie in ViewBag.TipoEspecies)
+            {
+                <option value="@tipoEspecie.IdTipoEspecie">@tipoEspecie.Nombre</option>
+            }
+        </select>
+    </div>
+    <input type="submit" value="Crear" />
+</form>
